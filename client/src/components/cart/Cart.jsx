@@ -1,10 +1,10 @@
-import { Card, Image } from "antd";
+import { Card, Image, Badge } from "antd";
 
 const Cart = () => {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col m-4 md:m-0">
       <div className="text-center border border-b-0">
-       <strong>CART</strong> 
+        <strong>CART</strong>
       </div>
       <Card className=" h-full overflow-y-auto rounded-none">
         <div>
@@ -24,35 +24,44 @@ const Cart = () => {
                   </div>
                 </div>
                 <div>
-                  <span>2x</span>
+                  <span className="text-4xl">
+                    <strong>2</strong>
+                  </span>
+                  <span className="text-2xl">
+                    <strong>X</strong>
+                  </span>
+
                 </div>
               </div>
             </li>
-
-            
           </ul>
         </div>
       </Card>
 
       <div className="cart-totals mt-auto">
         <div className="subtotal  p-2">
-          <div className="flex justify-between">
+          <div className="flex justify-between text-blue-600">
             <span>SUBTOTAL</span>
-            <span> 1 $</span>
+            <span> 1$</span>
           </div>
         </div>
 
         <div className="vat  border-t p-2">
-          <div className="flex justify-between">
+          <div className="flex justify-between text-blue-600">
             <span>VAT</span>
-            <span> 1 $</span>
+            <span> +1$</span>
           </div>
         </div>
 
         <div className="total border-t border-b p-2">
-          <div className="mt-4 flex justify-between ">
-            <span>TOTAL</span>
-            <span> 1 $ </span>
+          <div className="mt-4 flex justify-between text-green-600 text-2xl">
+            <span>
+              {" "}
+              <strong>TOTAL</strong>
+            </span>
+            <span>
+              <strong>1$</strong>
+            </span>
           </div>
         </div>
       </div>
