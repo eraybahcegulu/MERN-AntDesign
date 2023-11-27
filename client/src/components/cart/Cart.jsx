@@ -6,11 +6,11 @@ const Cart = () => {
       <div className="text-center border border-b-0">
         <strong>CART</strong>
       </div>
-      <Card className=" h-full overflow-y-auto rounded-none">
+      <Card className=" h-full rounded-none">
         <div>
-          <ul className=" flex flex-col overflow-y-auto gap-4">
-            <li className="border">
-              <div className="flex justify-between items-center p-4 ">
+          <ul className=" flex flex-col gap-4">
+            <li className="border ">
+              <div className="flex justify-between items-center  p-4 ">
                 <div className="flex flex-col border p-2">
                   <Image
                     width={64}
@@ -18,12 +18,12 @@ const Cart = () => {
                     src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
                     alt=""
                   />
-                  <div className="flex flex-row gap-2 justify-center">
-                    <span>test</span>
+                  <div className="flex flex-row gap-2 justify-center ">
+                    <span >testww</span>
                     <span>20$</span>
                   </div>
                 </div>
-                <div>
+                <div className="justify-end">
                   <span className="text-4xl">
                     <strong>2</strong>
                   </span>
@@ -38,11 +38,11 @@ const Cart = () => {
         </div>
       </Card>
 
-      <div className="cart-totals mt-auto">
+      <div className="cart-totals mt-auto max-w-[300px] ">
         <div className="subtotal  p-2">
           <div className="flex justify-between text-blue-600">
-            <span>SUBTOTAL</span>
-            <span> 1$</span>
+            <span >SUBTOTAL</span>
+            <span > 1$</span>
           </div>
         </div>
 
