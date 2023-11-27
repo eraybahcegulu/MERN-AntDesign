@@ -1,11 +1,11 @@
 .menu-item {
-    @apply p-6 bg-gray-800 text-white cursor-pointer hover:bg-gray-700 transition-all text-center max-w-[120px] overflow-hidden flex flex-col items-center justify-center border ;
+    @apply p-6 bg-gray-800 text-white cursor-pointer hover:bg-gray-700 transition-all text-center max-w-[120px]  flex flex-col items-center justify-center border ;
   }
   
   .menu-item-2 {
-    @apply p-6 bg-gray-800 text-white cursor-pointer transition-all text-center max-w-[120px] overflow-hidden flex flex-col items-center justify-center border overflow-hidden;
+    @apply p-6 bg-gray-800 text-white cursor-pointer transition-all text-center max-w-[120px] flex flex-col items-center justify-center border ;
   }
   
   .product{
-    @apply hover:opacity-80 transition-all border
+    @apply hover:opacity-80 transition-all border w-[80px] max-w-[80px]
   }

@@ -1,4 +1,9 @@
-import { HomeOutlined, InboxOutlined, LogoutOutlined, ProfileOutlined} from "@ant-design/icons";
+import {
+  HomeOutlined,
+  InboxOutlined,
+  LogoutOutlined,
+  ProfileOutlined,
+} from "@ant-design/icons";
 import "./style.css";
 
 const Menu = () => {
@@ -13,16 +18,12 @@ const Menu = () => {
         <div className="flex flex-col items-center">
           <InboxOutlined />
           <span>Products</span>
-          
         </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <div className="">
-            <span className="product bg-blue-600 p-2"> Add </span>
-          </div>
-          <div>
-            <span className="product bg-orange-400 p-2 "> Edit </span>
-          </div>
+        <div className="flex flex-col items-center gap-2">
+          <span className="product bg-blue-600 p-2"> Add </span>
+
+          <span className="product bg-orange-400 p-2 "> Edit </span>
         </div>
       </li>
 
@@ -30,21 +31,17 @@ const Menu = () => {
         <div className="flex flex-col items-center">
           <InboxOutlined />
           <span>Categories</span>
-          
         </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <div className="">
-            <span className="product bg-blue-600 p-2"> Add </span>
-          </div>
-          <div>
-            <span className="product bg-orange-400 p-2 "> Edit </span>
-          </div>
+        <div className="flex flex-col items-center gap-2">
+          <span className="product bg-blue-600 p-2"> Add </span>
+
+          <span className="product bg-orange-400 p-2 "> Edit </span>
         </div>
       </li>
 
       <li className="menu-item">
-      <ProfileOutlined />
+        <ProfileOutlined />
         <span>Orders</span>
       </li>
 

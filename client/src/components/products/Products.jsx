@@ -11,8 +11,204 @@ const Products = () => {
             alt=""
           />
         </div>
-        <div className="text-center p-4 flex flex-col overflow-hidden">
-          <span>test</span>
+        <div className="text-center p-4 flex flex-col">
+        <span className="overflow-hidden">testttttttttttttttttttttttttttttttttttttttttttttt</span>
+          <span> <strong>1$</strong></span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
+          <span>₺</span>
+        </div>
+      </div>
+
+      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
+        <div className="product-img">
+          <Image
+            className="h-36 object-cover w-full border-b"
+            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
+            alt=""
+          />
+        </div>
+        <div className="text-center p-4 flex flex-col">
+        <span >test</span>
           <span>₺</span>
         </div>
       </div>

@@ -14,6 +14,9 @@ body {
   background-color: #1677ff;
 }
 
+span{
+  word-wrap: break-word;
+}
 /* .categories::-webkit-scrollbar{
   display: none;
 } */

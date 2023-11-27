@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div className="home  flex md:flex-row flex-col justify-between gap-5">
       <div className=" bg-gray-900 md:h-[100vh]">
-        <div className="menu overflow-auto max-h-[90vh] md:mt-10">
+        <div className="menu overflow-auto max-h-[90vh] md:mt-10 mr-2 md:mr-0">
           <Menu />
         </div>
       </div>
@@ -21,7 +21,7 @@ const HomePage = () => {
         <Products />
       </div>
 
-      <div className="categories min-w-[150px] overflow-auto max-h-[calc(100vh-80px)] pt-6 mx-4 md:mx-0 md:mt-10 md:mr-5 border">
+      <div className="categories min-w-[150px] overflow-auto max-h-[calc(100vh-80px)] pt-6 mx-4 md:mx-0 md:mt-10 md:mr-5 border mb-4">
         <Categories />
       </div>
     </div>
