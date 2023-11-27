@@ -17,7 +17,7 @@ const HomePage = () => {
         <Cart />
       </div>
 
-      <div className="products flex-[7] max-h-[calc(100vh-80px)] overflow-y-auto mt-10">
+      <div className="products border p-6 flex-[7] max-h-[calc(100vh-80px)] overflow-y-auto mt-10">
         <Products />
       </div>
 
