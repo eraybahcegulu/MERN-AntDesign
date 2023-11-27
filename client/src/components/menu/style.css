@@ -1,0 +1,11 @@
+.menu-item {
+    @apply p-6 bg-teal-600 text-white cursor-pointer hover:opacity-80 transition-all text-center max-w-[120px]  flex flex-col items-center justify-center border ;
+  }
+  
+  .menu-item-product {
+    @apply p-6 bg-teal-600 text-white cursor-pointer transition-all text-center max-w-[120px]  flex flex-col items-center justify-center border;
+  }
+  
+  .product{
+    @apply hover:opacity-80 border
+  }
