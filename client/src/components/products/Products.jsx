@@ -1,217 +1,33 @@
-import { Card, Image } from "antd";
+import { Image , Alert} from "antd";
 
-const Products = () => {
+const Products = ({products,categories}) => {
   return (
     <div className="grid grid-cols-card gap-4 m-4 md:m-0">
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
+      {products.length === 0 ? (
+        <div className="p-2 w-[200px]">
+          <Alert message="Product not found" type="warning" showIcon />
         </div>
-        <div className="text-center p-4 flex flex-col">
-        <span className="overflow-hidden">testttttttttttttttttttttttttttttttttttttttttttttt</span>
-          <span> <strong>1$</strong></span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
-
-      <div className="product-item border hover:shadow-lg cursor-pointer transition-all select-none">
-        <div className="product-img">
-          <Image
-            className="h-36 object-cover w-full border-b"
-            src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-            alt=""
-          />
-        </div>
-        <div className="text-center p-4 flex flex-col">
-        <span >test</span>
-          <span>₺</span>
-        </div>
-      </div>
+      ) : (
+        products.map((item) => (
+          <div key={item._id} className="product-item border hover:shadow-md cursor-pointer transition-all select-none">
+            <div className="product-img">
+              <Image
+                className="h-36 object-cover w-full border-b"
+                src={item.image}
+                alt=""
+              />
+            </div>
+            <div className="text-center p-4 flex flex-col">
+              <span className="overflow-hidden">
+                {item.name}
+              </span>
+              <span>
+                <strong>{item.price}$</strong>
+              </span>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
