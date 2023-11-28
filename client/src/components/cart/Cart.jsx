@@ -1,5 +1,5 @@
 import { Card, Image, Button } from "antd";
-
+import {MinusOutlined , PlusOutlined} from "@ant-design/icons";
 const Cart = () => {
   return (
     <div className="h-full flex flex-col m-4 md:m-0">
@@ -20,20 +20,19 @@ const Cart = () => {
                   />
 
                   <div className="flex flex-col ">
-                    <span className="max-w-[150px]">Armut</span>
+                    <span className="max-w-[150px] text-xl"> <strong>Pear</strong></span>
                     <span className="max-w-[150px]">
-                      {" "}
-                      <strong>1$</strong>
+                      <strong className="text-xl">1$</strong>
                     </span>
                   </div>
                 </div>
-                <div>
+                <div className="flex flex-col items-center gap-1">
+                <Button icon={<PlusOutlined />} />
+
                   <span className="text-4xl">
                     <strong>2</strong>
                   </span>
-                  <span className="text-2xl">
-                    <strong>X</strong>
-                  </span>
+                  <Button  className="mt-1" icon={<MinusOutlined />} />
                 </div>
               </div>
             </li>
@@ -72,7 +71,7 @@ const Cart = () => {
             <strong> CLEAR CART </strong>
           </Button>
           <Button style={{borderRadius: '0'}} type="primary" size="large">
-          <strong> BUY </strong>
+          <strong> CREATE ORDER </strong>
           </Button>
         </div>
       </div>
