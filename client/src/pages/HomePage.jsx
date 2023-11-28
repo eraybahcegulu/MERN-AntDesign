@@ -40,15 +40,17 @@ const HomePage = () => {
     getCategories();
   };
 
-  const handleCategoryAdd = () => {
+  const handleProductAdded = () => {
     getProducts();
   };
+
+
 
   return (
     <div className="home  flex md:flex-row flex-col justify-between gap-5">
       <div className=" bg-gray-900 md:h-[100vh]">
         <div className="menu overflow-auto max-h-[90vh] px-2 md:mt-10 mx-4 md:mx-0">
-          <Menu categories={categories} categoryAdded={handleCategoryAdded} productAdded={handleCategoryAdd} />
+          <Menu categories={categories} categoryAdded={handleCategoryAdded} productAdded={handleProductAdded}/>
         </div>
       </div>
 
