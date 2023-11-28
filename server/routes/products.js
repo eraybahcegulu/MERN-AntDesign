@@ -15,7 +15,7 @@ router.post("/add", async (req, res) => {
   try {
     const newProduct = new Product(req.body);
     await newProduct.save();
-    res.status(200).json("Item added successfully.");
+    res.status(200).json("Product added successfully.");
   } catch (error) {
     res.status(500).json(error);
   }
