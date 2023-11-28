@@ -8,7 +8,7 @@ const CategoriesPage = () => {
     useEffect(() => {
       getCategories();
     }, []);
-  
+
     const getCategories = async () => {
       try {
         const response = await axios.get(
@@ -20,9 +20,13 @@ const CategoriesPage = () => {
       }
     };
 
+    const handleCategoryDeleted = () => {
+        getCategories();
+      };
+
   return (
     <div className="h-[100vh] flex flex-col items-center justify-center">
-        <CategoriesEdit categories={categories}/>
+        <CategoriesEdit categories={categories} categoryDeleted={handleCategoryDeleted}/>
     </div>
   );
 };

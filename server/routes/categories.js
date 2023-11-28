@@ -21,4 +21,14 @@ router.post("/add", async (req, res) => {
   }
 });
 
+router.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Category.findByIdAndDelete(id).exec();
+    res.status(200).json("Category deleted successfully.");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
