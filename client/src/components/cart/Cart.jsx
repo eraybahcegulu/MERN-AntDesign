@@ -1,6 +1,23 @@
+import React, { useState } from 'react';
 import { Card, Image, Button } from "antd";
 import {MinusOutlined , PlusOutlined} from "@ant-design/icons";
 const Cart = () => {
+
+  const [count, setCount] = useState(5);
+
+  const increase = () => {
+    setCount(count + 1);
+  };
+
+  const decline = () => {
+    let newCount = count - 1;
+    if (newCount < 0) {
+      newCount = 0;
+    }
+    setCount(newCount);
+  };
+
+
   return (
     <div className="h-full flex flex-col m-4 md:m-0">
       <div className="text-center border border-b-0 p-2">
@@ -26,13 +43,12 @@ const Cart = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-1">
-                <Button icon={<PlusOutlined />} />
-
+                <div className="flex flex-col items-center gap-1 w-6">
+                <Button onClick={increase} icon={<PlusOutlined />} />
                   <span className="text-4xl">
-                    <strong>2</strong>
+                    <strong>{count}</strong>
                   </span>
-                  <Button  className="mt-1" icon={<MinusOutlined />} />
+                  <Button onClick={decline} className="mt-1" icon={<MinusOutlined />} />
                 </div>
               </div>
             </li>
@@ -67,11 +83,11 @@ const Cart = () => {
         </div>
 
         <div className="flex flex-col gap-4 mt-4">
-          <Button style={{borderRadius: '0'}} type="primary" size="large" danger>
-            <strong> CLEAR CART </strong>
-          </Button>
           <Button style={{borderRadius: '0'}} type="primary" size="large">
           <strong> CREATE ORDER </strong>
+          </Button>
+          <Button style={{borderRadius: '0'}} type="primary" size="large" danger>
+            <strong> CLEAR CART </strong>
           </Button>
         </div>
       </div>
