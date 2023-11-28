@@ -1,3 +1,7 @@
 .categories-item{
-@apply bg-gray-600 cursor-pointer hover:opacity-90 transition-all text-white p-6 md:w-[150px] w-full mx-4 text-center
+@apply bg-gray-600 cursor-pointer hover:opacity-90 transition-all text-white p-6 md:w-[175px] w-full mx-4 text-center
+}
+
+.categories-all-products{
+    @apply bg-sky-600 cursor-pointer hover:opacity-90 transition-all text-white p-6 md:w-[175px] w-full mx-4 text-center
 }
