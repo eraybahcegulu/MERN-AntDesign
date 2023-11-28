@@ -12,6 +12,8 @@ import "./style.css";
 
 import { Button, Input, Form, message, Modal, Select } from "antd";
 
+import { Link } from "react-router-dom";
+
 const Menu = ({ categoryAdded, productAdded, categories }) => {
   const [categoryForm] = Form.useForm();
   const [productForm] = Form.useForm();
@@ -40,8 +42,7 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
       await axios.post("http://localhost:5000/api/products/add", values);
       message.success(
         <span>
-          Product <strong>{values.name}</strong> added
-          successfully
+          Product <strong>{values.name}</strong> added successfully
         </span>
       );
       productForm.resetFields();
@@ -131,7 +132,7 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
                 ]}
               >
                 <Select
-                  style={{ width: 150}}
+                  style={{ width: 150 }}
                   placeholder="Select Category"
                   options={categories.map((item) => ({
                     value: item.name,
@@ -205,7 +206,15 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
             </Form>
           </Modal>
 
-          <span className="item-button bg-orange-400 p-2 "> EDIT </span>
+
+          
+
+          <Link className="item-button bg-orange-400 p-2 " to={"/categories"}>
+          <span > EDIT </span>
+          </Link>
+
+
+          
         </div>
       </li>
 
