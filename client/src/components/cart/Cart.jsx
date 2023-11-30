@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Card, Image, Button, message, Empty, Modal } from "antd";
 import { MinusOutlined, PlusOutlined, CloseOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,6 +7,7 @@ import { removeProduct, increase, decrease, reset } from "../../redux-toolkit/ca
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="h-full flex flex-col m-4 md:m-0">
@@ -21,18 +23,25 @@ const Cart = () => {
                     <CloseOutlined
                       className="absolute right-7 mt-1 cursor-pointer hover:text-red-500"
                       onClick={() => {
+                        if (!isModalOpen) {
+                        setModalOpen(true);
                         Modal.confirm({
                           content: <span>Are you sure you want to remove <strong>{cartProduct.name}</strong> from the cart? </span>,
                           
                           onOk() {
                             dispatch(removeProduct(cartProduct));
+                            setModalOpen(false);
                             message.success({
                               content: <span><strong>{cartProduct.name}</strong> removed from cart </span> , 
                               duration:2,
                               style: {  marginRight: '80%' }});
                           },
-                          onCancel() {},
+                          onCancel() {
+                            setModalOpen(false);
+                          },
                         });
+
+                      }
                       }}
                     />
 
@@ -67,18 +76,23 @@ const Cart = () => {
                         className="flex flex-row items-center justify-center"
                         onClick={() => {
                           if (cartProduct.quantity === 1) {
+                            if (!isModalOpen) {
+                            setModalOpen(true);
                             Modal.confirm({
-
                               content: <span>Are you sure you want to remove last <strong>{cartProduct.name}</strong> from the cart? </span>,
                               onOk() {
                                 dispatch(removeProduct(cartProduct));
+                                setModalOpen(false);
                                 message.success({
                                   content: <span><strong>{cartProduct.name}</strong> removed from cart </span> , 
                                   duration:2,
                                   style: {  marginRight: '80%' }});
                               },
-                              onCancel() {},
+                              onCancel() {
+                                setModalOpen(false);
+                              },
                             });
+                          }
                           }
                           if (cartProduct.quantity > 1) {
                             dispatch(decrease(cartProduct));
@@ -147,17 +161,23 @@ const Cart = () => {
             danger
             disabled={cart.cartProducts.length === 0}
             onClick={() => {
+              if (!isModalOpen) {
+                setModalOpen(true);
               Modal.confirm({
                 content: <span>Are you sure you want to clear cart? </span>,
                 onOk() {
                   dispatch(reset());
+                  setModalOpen(false);
                   message.success({
                     content: <span><strong>Cart cleared</strong></span> , 
                     duration:2,
                     style: {  marginRight: '80%' }});
                 },
-                onCancel() {},
+                onCancel() {
+                  setModalOpen(false);
+                },
               });
+            }
             }}
           >
             <strong> CLEAR CART </strong>
