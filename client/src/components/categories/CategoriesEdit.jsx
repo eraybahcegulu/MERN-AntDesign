@@ -64,10 +64,10 @@ const CategoriesEdit = ({ categories, categoryDeleted, categoryUpdated }) => {
       title: <div style={{ textAlign: "center" }}>Actions</div>,
       dataIndex: "_id",
       key: "action",
-      render: (_id, record) => (
+      render: (_id, selectedCategory) => (
         <div className="flex flex-row gap-2 justify-center">
           <Button
-            onClick={() => modalOpen(_id, record.name)}
+            onClick={() => modalOpen(_id, selectedCategory.name)}
             style={{ borderRadius: "0" }}
             type="dashed"
           >
@@ -76,7 +76,7 @@ const CategoriesEdit = ({ categories, categoryDeleted, categoryUpdated }) => {
 
           <Button
             style={{ borderRadius: "0" }}
-            onClick={() => deleteCategory(_id, record.name)}
+            onClick={() => deleteCategory(_id, selectedCategory.name)}
             danger
           >
             Delete

@@ -158,7 +158,10 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
             </Form>
           </Modal>
 
-          <span className="item-button bg-orange-400 p-2 "> EDIT </span>
+          <Link className="item-button bg-orange-400 p-2 " to={"/products"}>
+          <span > EDIT </span>
+          </Link>
+
         </div>
       </li>
 
