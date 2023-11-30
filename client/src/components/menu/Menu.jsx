@@ -67,10 +67,13 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
   };
   return (
     <ul className="flex md:flex-col gap-4 text-lg p-4">
+      <Link to={"/"}>
       <li className=" menu-item">
         <HomeOutlined />
         <span> HOME</span>
       </li>
+      </Link>
+
 
       <li className=" menu-item-2 flex flex-col gap-2">
         <div className="flex flex-col items-center">
@@ -87,6 +90,7 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
           </span>
 
           <Modal
+
             open={isAddProductModalOpen}
             onCancel={handleCancel}
             footer={false}
