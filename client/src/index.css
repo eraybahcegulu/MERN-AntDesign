@@ -4,10 +4,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
+
+
+.ant-btn, .ant-input, .ant-card, .ant-modal, 
+.ant-select, .ant-table-container, .ant-message-notice, 
+.ant-notification-notice, .ant-form-item-required,
+.ant-alert
+{
+  font-family: 'Electrolize', sans-serif;
+}
+
+
 body {
   margin: 0;
   font-family: 'Electrolize', sans-serif;
-
 }
 
 .ant-btn-primary{
