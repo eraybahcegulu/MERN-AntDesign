@@ -24,9 +24,13 @@ const CategoriesPage = () => {
         getCategories();
       };
 
+      const handleCategoryUpdated = () => {
+        getCategories();
+      };
+
   return (
     <div className="h-[100vh] flex flex-col items-center justify-center">
-        <CategoriesEdit categories={categories} categoryDeleted={handleCategoryDeleted}/>
+        <CategoriesEdit categories={categories} categoryDeleted={handleCategoryDeleted} categoryUpdated={handleCategoryUpdated}/>
     </div>
   );
 };

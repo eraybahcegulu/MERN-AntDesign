@@ -15,9 +15,9 @@ const Categories = ({ categories }) => {
             <Alert message="Category not found" type="warning" showIcon />
           </div>
         ) : (
-          categories.map((item) => (
-            <li className="categories-item" key={item._id}>
-              <span>{item.name.toUpperCase()}</span>
+          categories.map((category) => (
+            <li className="categories-item" key={category._id}>
+              <span>{category.name.toUpperCase()}</span>
             </li>
           ))
         )}
