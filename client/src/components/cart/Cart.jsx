@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
-import { Card, Image, Button } from "antd";
-import {MinusOutlined , PlusOutlined} from "@ant-design/icons";
+import { Card, Image, Button, message, Empty, Modal } from "antd";
+import { MinusOutlined, PlusOutlined, CloseOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { removeProduct, increase, decrease, reset } from "../../redux-toolkit/cart/cartSlice";
+
 const Cart = () => {
-
-  const [count, setCount] = useState(5);
-
-  const increase = () => {
-    setCount(count + 1);
-  };
-
-  const decline = () => {
-    let newCount = count - 1;
-    if (newCount < 0) {
-      newCount = 0;
-    }
-    setCount(newCount);
-  };
-
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   return (
     <div className="h-full flex flex-col m-4 md:m-0">
@@ -26,32 +15,84 @@ const Cart = () => {
       <Card className=" h-full rounded-none overflow-auto">
         <div className="">
           <ul className=" flex flex-col gap-4 ">
-            <li className="border ">
-              <div className="flex justify-between items-center  p-4 ">
-                <div className="flex flex-col text-center">
-                  <Image
-                    width={64}
-                    height={64}
-                    src="https://biosantarim.com/tema/genel/uploads/urunler/armut.png"
-                    alt=""
-                  />
+            {cart.cartProducts.length > 0 ? (
+              cart.cartProducts.map((cartProduct) => (
+                <li key={cartProduct._id} className="border-b hover:shadow-md">
+                    <CloseOutlined
+                      className="absolute right-7 mt-1 cursor-pointer hover:text-red-500"
+                      onClick={() => {
+                        Modal.confirm({
+                          content: <span>Are you sure you want to remove <strong>{cartProduct.name}</strong> from the cart? </span>,
+                          
+                          onOk() {
+                            dispatch(removeProduct(cartProduct));
+                            message.success({
+                              content: <span><strong>{cartProduct.name}</strong> removed from cart </span> , 
+                              duration:2,
+                              style: {  marginRight: '80%' }});
+                          },
+                          onCancel() {},
+                        });
+                      }}
+                    />
 
-                  <div className="flex flex-col ">
-                    <span className="max-w-[150px] text-xl"> <strong>Pear</strong></span>
-                    <span className="max-w-[150px]">
-                      <strong className="text-xl">1$</strong>
-                    </span>
+                  <div className="flex justify-between items-center p-4 mt-2 ">
+                    <div className="flex flex-col text-center">
+                      <Image
+                        className="object-cover"
+                        width={64}
+                        height={64}
+                        src={cartProduct.image}
+                        alt=""
+                      />
+                      <div className="flex flex-col ">
+                        <span className="max-w-[150px] text-xl">
+                          <strong>{cartProduct.name}</strong>
+                        </span>
+                        <span className="max-w-[150px]">
+                          <strong className="text-xl">{cartProduct.price}$</strong>
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center w-6 ml-auto">
+                      <Button
+                        className="flex flex-row items-center justify-center"
+                        onClick={() => dispatch(increase(cartProduct))}
+                        icon={<PlusOutlined />}
+                      />
+                      <span className="text-4xl mt-1">
+                        <strong>{cartProduct.quantity}</strong>
+                      </span>
+                      <Button
+                        className="flex flex-row items-center justify-center"
+                        onClick={() => {
+                          if (cartProduct.quantity === 1) {
+                            Modal.confirm({
+
+                              content: <span>Are you sure you want to remove last <strong>{cartProduct.name}</strong> from the cart? </span>,
+                              onOk() {
+                                dispatch(removeProduct(cartProduct));
+                                message.success({
+                                  content: <span><strong>{cartProduct.name}</strong> removed from cart </span> , 
+                                  duration:2,
+                                  style: {  marginRight: '80%' }});
+                              },
+                              onCancel() {},
+                            });
+                          }
+                          if (cartProduct.quantity > 1) {
+                            dispatch(decrease(cartProduct));
+                          }
+                        }}
+                        icon={<MinusOutlined />}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col items-center gap-1 w-6">
-                <Button onClick={increase} icon={<PlusOutlined />} />
-                  <span className="text-4xl">
-                    <strong>{count}</strong>
-                  </span>
-                  <Button onClick={decline} className="mt-1" icon={<MinusOutlined />} />
-                </div>
-              </div>
-            </li>
+                </li>
+              ))
+            ) : (
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+            )}
           </ul>
         </div>
       </Card>
@@ -60,14 +101,19 @@ const Cart = () => {
         <div className="subtotal  p-2">
           <div className="flex justify-between text-blue-400">
             <span>SUBTOTAL</span>
-            <span> 1$</span>
+            <span>{cart.subTotal > 0 ? cart.subTotal.toFixed(2) : 0}$</span>
           </div>
         </div>
 
-        <div className="vat  border-t p-2">
+        <div className="vat border-t p-2">
           <div className="flex justify-between text-blue-400">
-            <span>VAT</span>
-            <span> +1$</span>
+            <span>VAT {cart.tax}%</span>
+            <span className="text-red-700">
+              {(cart.subTotal * cart.tax) / 100 > 0
+                ? `+${((cart.subTotal * cart.tax) / 100).toFixed(2)}`
+                : 0}
+              ₺
+            </span>
           </div>
         </div>
 
@@ -76,17 +122,44 @@ const Cart = () => {
             <span>
               <strong>TOTAL</strong>
             </span>
-            <span>
-              <strong>1$</strong>
+            <span className="text-xl">
+              {cart.subTotal + (cart.subTotal * cart.tax) / 100 > 0
+                ? (cart.subTotal + (cart.subTotal * cart.tax) / 100).toFixed(2)
+                : 0}
+              ₺
             </span>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mt-4">
-          <Button style={{borderRadius: '0'}} type="primary" size="large">
-          <strong> CREATE ORDER </strong>
+        <div className="flex flex-col border-b pb-4 gap-4 mt-4">
+          <Button
+            disabled={cart.cartProducts.length === 0}
+            style={{ borderRadius: "0" }}
+            type="primary"
+            size="large"
+          >
+            <strong> CREATE ORDER </strong>
           </Button>
-          <Button style={{borderRadius: '0'}} type="primary" size="large" danger>
+          <Button
+            style={{ borderRadius: "0" }}
+            type="primary"
+            size="large"
+            danger
+            disabled={cart.cartProducts.length === 0}
+            onClick={() => {
+              Modal.confirm({
+                content: <span>Are you sure you want to clear cart? </span>,
+                onOk() {
+                  dispatch(reset());
+                  message.success({
+                    content: <span><strong>Cart cleared</strong></span> , 
+                    duration:2,
+                    style: {  marginRight: '80%' }});
+                },
+                onCancel() {},
+              });
+            }}
+          >
             <strong> CLEAR CART </strong>
           </Button>
         </div>
