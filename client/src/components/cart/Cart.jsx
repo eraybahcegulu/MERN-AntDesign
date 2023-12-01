@@ -46,11 +46,11 @@ const Cart = () => {
                     />
 
                   <div className="flex justify-between items-center p-4 mt-2 ">
-                    <div className="flex flex-col text-center">
+                    <div className="flex flex-col">
                       <Image
-                        className="object-cover"
-                        width={64}
-                        height={64}
+                        className="object-cover rounded-sm"
+                        width={80}
+                        height={80}
                         src={cartProduct.image}
                         alt=""
                       />
