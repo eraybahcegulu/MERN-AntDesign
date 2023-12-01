@@ -48,8 +48,8 @@ const CartProducts = ( {cartProduct} ) => {
         <div className="flex flex-col">
           <Image
             className="object-cover"
-            width={80}
-            height={80}
+            width={64}
+            height={64}
             src={cartProduct.image}
             alt=""
           />
