@@ -23,7 +23,7 @@ const Product = ({ product }) => {
     >
       <div className="product-img">
         <Image
-          className="min-h-[175px] w-full object-cover border-b"
+          className="min-h-[175px] max-h-[175px] w-full object-cover border-b"
           src={product.image}
           alt=""
         />
