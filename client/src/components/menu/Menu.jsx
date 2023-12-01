@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useCategoriesData } from '../../contexts/CategoriesContext';
+import { useProductsData } from '../../contexts/ProductsContext';
 
 import {
   HomeOutlined,
@@ -14,7 +16,10 @@ import { Button, Input, Form, message, Modal, Select } from "antd";
 
 import { Link } from "react-router-dom";
 
-const Menu = ({ categoryAdded, productAdded, categories }) => {
+const Menu = () => {
+  const { getProducts } = useProductsData();
+  const { categories, getCategories } = useCategoriesData();
+
   const [categoryForm] = Form.useForm();
   const [productForm] = Form.useForm();
   const [isAddCategoryModalOpen, setIsAddCategoryModalOpen] = useState(false);
@@ -30,8 +35,7 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
         </span>
       );
       categoryForm.resetFields();
-
-      categoryAdded();
+      getCategories();
     } catch (error) {
       console.log(error);
     }
@@ -45,9 +49,8 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
           Product <strong>{values.name}</strong> added successfully
         </span>
       );
+      getProducts();
       productForm.resetFields();
-
-      productAdded();
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +76,6 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
         <span> HOME</span>
       </li>
       </Link>
-
 
       <li className=" menu-item-2 flex flex-col gap-2">
         <div className="flex flex-col items-center">
@@ -213,15 +215,9 @@ const Menu = ({ categoryAdded, productAdded, categories }) => {
             </Form>
           </Modal>
 
-
-          
-
           <Link className="item-button bg-orange-400 p-2 " to={"/categories"}>
           <span > EDIT </span>
           </Link>
-
-
-          
         </div>
       </li>
 
