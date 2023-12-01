@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <ul className="flex md:flex-col gap-4 text-lg p-4">
-      <Link to={"/"}>
-        <li className=" menu-item">
+      
+      <Link className=" menu-item" to={"/"}>
+        <li >
           <HomeOutlined />
           <span> HOME</span>
         </li>
