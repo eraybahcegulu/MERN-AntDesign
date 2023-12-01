@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Table, Button, Input, message,Form, Modal, Select } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useProductsData } from '../../contexts/ProductsContext';
+import { useCategoriesData } from '../../contexts/CategoriesContext';
 
-const ProductsEdit = ({ products, categories, productDeleted, productUpdated }) => {
+import { useDispatch } from "react-redux";
+import { reset } from "../../redux-toolkit/cart/cartSlice";
+
+const ProductsEdit = () => {
+  const { products , getProducts } = useProductsData();
+  const { categories } = useCategoriesData();
+  
+  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState({ name: null });
   const [form] = Form.useForm();
@@ -16,11 +26,15 @@ const ProductsEdit = ({ products, categories, productDeleted, productUpdated }) 
           Category <strong>{name}</strong> deleted
         </span>
       );
-      productDeleted();
+      getProducts();
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    dispatch(reset());
+  }, []);
 
   const updateProduct = async (id) => {
     const productInfos = await form.validateFields();
@@ -30,7 +44,7 @@ const ProductsEdit = ({ products, categories, productDeleted, productUpdated }) 
         productInfos
       );
       message.success(<span>Product updated</span>);
-      productUpdated();
+      getProducts();
       handleModalClose();
     } catch (error) {
       console.log(error);
