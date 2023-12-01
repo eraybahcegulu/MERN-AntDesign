@@ -14,7 +14,6 @@
   font-family: 'Electrolize', sans-serif;
 }
 
-
 body {
   margin: 0;
   font-family: 'Electrolize', sans-serif;
@@ -27,6 +26,11 @@ body {
 span{
   word-wrap: break-word;
 }
+
+.categories-all-products.active{
+  @apply text-black
+}
+
 /* .categories::-webkit-scrollbar{
   display: none;
 } */
@@ -34,3 +38,4 @@ span{
 /* .menu::-webkit-scrollbar{
   display: none;
 } */
+
