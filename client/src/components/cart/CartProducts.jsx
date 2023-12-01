@@ -20,9 +20,8 @@ const CartProducts = ( {cartProduct} ) => {
             Modal.confirm({
               content: (
                 <span>
-                  Are you sure you want to remove
-                  <strong>{cartProduct.name}</strong> from the cart?
-                </span>
+                  Are you sure you want to remove <strong>{cartProduct.name}
+                  </strong> from the cart? </span>
               ),
 
               onOk() {
@@ -31,8 +30,7 @@ const CartProducts = ( {cartProduct} ) => {
                 message.success({
                   content: (
                     <span>
-                      <strong>{cartProduct.name}</strong> removed from cart
-                    </span>
+                      <strong>{cartProduct.name}</strong> removed from cart </span>
                   ),
                   duration: 2,
                   style: { marginRight: "80%" },
@@ -82,8 +80,7 @@ const CartProducts = ( {cartProduct} ) => {
                   Modal.confirm({
                     content: (
                       <span>
-                        Are you sure you want to remove last
-                        <strong>{cartProduct.name}</strong> from the cart?
+                        Are you sure you want to remove last <strong>{cartProduct.name}</strong> from the cart?
                       </span>
                     ),
                     onOk() {
@@ -92,9 +89,7 @@ const CartProducts = ( {cartProduct} ) => {
                       message.success({
                         content: (
                           <span>
-                            <strong>{cartProduct.name}</strong> removed from
-                            cart
-                          </span>
+                            <strong>{cartProduct.name}</strong> removed from cart </span>
                         ),
                         duration: 2,
                         style: { marginRight: "80%" },
