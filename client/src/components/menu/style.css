@@ -1,11 +1,11 @@
 .menu-item {
-    @apply p-6 bg-gray-800 text-white cursor-pointer hover:bg-gray-700 transition-all text-center max-w-[120px]  flex flex-col items-center justify-center border ;
+    @apply p-6 bg-gray-800 text-white cursor-pointer hover:bg-gray-700 transition-all text-center max-w-[120px]  flex flex-col items-center justify-center  ;
   }
   
   .menu-item-2 {
-    @apply p-6 bg-gray-800 text-white transition-all text-center max-w-[120px] flex flex-col items-center justify-center border ;
+    @apply p-6 bg-gray-800 text-white transition-all text-center max-w-[120px] flex flex-col items-center justify-center ;
   }
   
   .item-button{
-    @apply hover:opacity-80 cursor-pointer transition-all border w-[80px] max-w-[80px]
+    @apply hover:opacity-80 cursor-pointer transition-all w-[80px] max-w-[80px]
   }
