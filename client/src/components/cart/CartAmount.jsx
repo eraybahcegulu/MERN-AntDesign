@@ -17,7 +17,7 @@ const CartAmount = () => {
     <div className="vat border-t p-2">
       <div className="flex justify-between text-blue-400">
         <span>VAT {cart.tax}%</span>
-        <span className="text-red-700">
+        <span className="text-red-600">
           {(cart.subTotal * cart.tax) / 100 > 0
             ? `+${((cart.subTotal * cart.tax) / 100).toFixed(2)}`
             : 0}
