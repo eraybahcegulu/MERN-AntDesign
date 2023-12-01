@@ -2,19 +2,14 @@ import Menu from "../components/menu/Menu";
 import Categories from "../components/categories/Categories";
 import Products from "../components/products/Products";
 import Cart from "../components/cart/Cart";
-import { Spin } from "antd";
 
-import { useCategoriesData } from "../contexts/CategoriesContext";
-import { useProductsData } from "../contexts/ProductsContext";
 const HomePage = () => {
-  const { products } = useProductsData();
-  const { categories } = useCategoriesData();
+
   return (
     <>
-      {products && categories  ? (
         <div className="home  flex md:flex-row flex-col justify-between gap-5">
           <div className=" bg-gray-900 md:h-[100vh]">
-            <div className="menu overflow-auto max-h-[90vh] px-2 md:mt-10 mx-4 md:mx-0">
+            <div className="menu overflow-auto max-h-[90vh] px-2 md:mt-6 mx-4 md:mx-0">
               <Menu />
             </div>
           </div>
@@ -34,12 +29,6 @@ const HomePage = () => {
             <Categories />
           </div>
         </div>
-      ) : (
-        <Spin
-          size="large"
-          className="flex flex-col items-center justify-center h-screen"
-        />
-      )}
     </>
   );
 };
