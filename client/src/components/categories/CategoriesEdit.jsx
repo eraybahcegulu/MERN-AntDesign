@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Table, Button, Input, message, Form, Modal } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useCategoriesData } from '../../contexts/CategoriesContext';
 
-const CategoriesEdit = ({ categories, categoryDeleted, categoryUpdated }) => {
+const CategoriesEdit = () => {
+  const { categories , getCategories } = useCategoriesData();
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState({ name: null });
   const [form] = Form.useForm();
@@ -16,7 +19,7 @@ const CategoriesEdit = ({ categories, categoryDeleted, categoryUpdated }) => {
           Category <strong>{name}</strong> deleted
         </span>
       );
-      categoryDeleted();
+      getCategories();
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +33,7 @@ const CategoriesEdit = ({ categories, categoryDeleted, categoryUpdated }) => {
         name
       );
       message.success(<span>Category updated</span>);
-      categoryUpdated();
+      getCategories();
       handleModalClose();
     } catch (error) {
       console.log(error);
