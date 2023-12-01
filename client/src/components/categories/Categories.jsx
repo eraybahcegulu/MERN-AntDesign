@@ -1,6 +1,8 @@
 import "./style.css";
 import { Alert } from "antd";
-const Categories = ({ categories }) => {
+import { useCategoriesData } from '../../contexts/CategoriesContext';
+const Categories = () => {
+  const { categories } = useCategoriesData();
   return (
     <div>
       <div className="text-center border-b p-2">
