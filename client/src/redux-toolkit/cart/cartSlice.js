@@ -7,9 +7,19 @@ import { createSlice } from "@reduxjs/toolkit";
 // dispatch halinde ilgili reducer ile sepet state içeriğini güncelleme
 
 const initialState = {
+  
   cartProducts: [],
   subTotal: 0,
   tax: 10,
+
+  /* for Local Storage (app.jsx)
+  cartProducts: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart")).cartProducts
+    : [],
+  subTotal: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart")).subTotal
+    : 0,
+  tax: 10, */
 };
 
 const cartSlice = createSlice({
