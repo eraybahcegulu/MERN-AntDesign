@@ -16,7 +16,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="cart min-w-[300px] max-h-[calc(100vh-80px)] overflow-y-auto  mt-10">
+          <div className="border md:border-none cart min-w-[300px] max-h-[calc(100vh-80px)] mx-4 md:mx-0 overflow-y-auto  mt-10">
             <Cart />
           </div>
 
