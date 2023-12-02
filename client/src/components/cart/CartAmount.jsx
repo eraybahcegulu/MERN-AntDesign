@@ -21,7 +21,7 @@ const CartAmount = () => {
           {(cart.subTotal * cart.tax) / 100 > 0
             ? `+${((cart.subTotal * cart.tax) / 100).toFixed(2)}`
             : 0}
-          ₺
+          $
         </span>
       </div>
     </div>
@@ -35,7 +35,7 @@ const CartAmount = () => {
           {cart.subTotal + (cart.subTotal * cart.tax) / 100 > 0
             ? (cart.subTotal + (cart.subTotal * cart.tax) / 100).toFixed(2)
             : 0}
-          ₺
+          $
         </span>
       </div>
     </div>
