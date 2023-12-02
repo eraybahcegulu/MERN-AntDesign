@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button, Input, message,Form, Modal, Select } from "antd";
+import {
+  Table,
+  Button,
+  Input,
+  message,
+  Form,
+  Modal,
+  Select,
+  Image,
+} from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useProductsData } from '../../contexts/ProductsContext';
-import { useCategoriesData } from '../../contexts/CategoriesContext';
+import { useProductsData } from "../../contexts/ProductsContext";
+import { useCategoriesData } from "../../contexts/CategoriesContext";
 
 import { useDispatch } from "react-redux";
 import { reset } from "../../redux-toolkit/cart/cartSlice";
 
 const ProductsEdit = () => {
-  const { products , getProducts } = useProductsData();
+  const { products, getProducts } = useProductsData();
   const { categories } = useCategoriesData();
-  
+
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,7 +29,9 @@ const ProductsEdit = () => {
 
   const deleteProduct = async (id, name) => {
     try {
-      await axios.delete( process.env.REACT_APP_API_URL + `/api/products/delete/${id}`);
+      await axios.delete(
+        process.env.REACT_APP_API_URL + `/api/products/delete/${id}`
+      );
       message.success(
         <span>
           Category <strong>{name}</strong> deleted
@@ -75,7 +86,17 @@ const ProductsEdit = () => {
     {
       title: <div className="text-center">Image</div>,
       dataIndex: "image",
-      render: (image) => <img src={image} className="text-center" />,
+      render: (image) => (
+        <div className="text-center flex flex-col justify-center items-center">
+          <Image
+            className="object-cover "
+            width={95}
+            height={95}
+            src={image}
+            alt=""
+          />
+        </div>
+      ),
     },
     {
       title: <div className="text-center">Name</div>,
@@ -90,7 +111,7 @@ const ProductsEdit = () => {
     {
       title: <div className="text-center">Price</div>,
       dataIndex: "price",
-      render: (price) => <div className="text-center">{price}</div>,
+      render: (price) => <div className="text-center">{price}$</div>,
     },
 
     {
@@ -115,10 +136,11 @@ const ProductsEdit = () => {
             Edit
           </Button>
 
-          <Button style={{ borderRadius: "0" }} danger
-          onClick={() => deleteProduct(_id, selectedProduct.name)}
+          <Button
+            style={{ borderRadius: "0" }}
+            danger
+            onClick={() => deleteProduct(_id, selectedProduct.name)}
           >
-            
             Delete
           </Button>
         </div>
@@ -190,11 +212,10 @@ const ProductsEdit = () => {
           >
             <Select
               style={{ width: 150 }}
-              options={categories
-                .map((category) => ({
-                  value: category.name,
-                  label: category.name,
-                }))}
+              options={categories.map((category) => ({
+                value: category.name,
+                label: category.name,
+              }))}
             />
           </Form.Item>
 
