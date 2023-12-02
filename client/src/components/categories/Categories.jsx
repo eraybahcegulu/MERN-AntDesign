@@ -1,18 +1,38 @@
+import { useEffect, useState } from "react";
 import "./style.css";
 import { Alert } from "antd";
 import { useCategoriesData } from '../../contexts/CategoriesContext';
+import { useProductsData } from '../../contexts/ProductsContext';
 import { useLocation } from "react-router-dom";
-const Categories = () => {
+const Categories = ({setFilteredProducts}) => {
+
   const { categories } = useCategoriesData();
+  const { products } = useProductsData();
   const { pathname } = useLocation();
-  
+  const [ selectedCategory, setSelectedCategory] = useState();
+
+  useEffect(() => {
+
+    if(selectedCategory === undefined)
+    {
+      setFilteredProducts(products);
+    }
+    else if (selectedCategory === "ALL PRODUCTS") {
+      setFilteredProducts(products);
+    } 
+    else {
+      setFilteredProducts(products.filter((product) => product.category === selectedCategory));
+    }
+  }, [products, setFilteredProducts, selectedCategory]);
+
   return (
     <div>
       <div className="text-center border-b p-2">
         <strong>CATEGORIES</strong>
       </div>
       <ul className="flex flex-col gap items-center gap-4 md:mx-0 mt-6 mb-4 mx-4 ">
-        <li className={`categories-all-products ${pathname === "/" && "active"}  `}>
+        <li className={`categories-all-products ${pathname === "/" && "active"}  `}
+        onClick={() => setSelectedCategory("ALL PRODUCTS")}>
           <span>ALL PRODUCTS</span>
         </li>
         {categories.length === 0 ? (
@@ -21,7 +41,8 @@ const Categories = () => {
           </div>
         ) : (
           categories.map((category) => (
-            <li className="categories-item" key={category._id}>
+            <li className="categories-item" key={category._id}
+            onClick={() => setSelectedCategory(category.name)}>
               <span>{category.name.toUpperCase()}</span>
             </li>
           ))

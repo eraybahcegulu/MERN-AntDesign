@@ -1,9 +1,11 @@
+import { useState } from "react";
 import Menu from "../components/menu/Menu";
 import Categories from "../components/categories/Categories";
 import Products from "../components/products/Products";
 import Cart from "../components/cart/Cart";
 
 const HomePage = () => {
+  const [ filteredProducts, setFilteredProducts] = useState([]);
 
   return (
     <>
@@ -19,14 +21,14 @@ const HomePage = () => {
           </div>
 
           <div className="products border p-6 flex-[7] max-h-[calc(100vh-80px)] min-w-[220px] overflow-y-auto mx-4 md:mx-0 mt-10">
-            <Products />
+            <Products filteredProducts={filteredProducts}/>
           </div>
 
           <div
             className="categories min-w-[150px] overflow-auto max-h-[calc(100vh-80px)]
               mx-4 md:mx-0 md:mt-10 md:mr-5 border mb-6"
           >
-            <Categories />
+            <Categories setFilteredProducts={setFilteredProducts} />
           </div>
         </div>
     </>
