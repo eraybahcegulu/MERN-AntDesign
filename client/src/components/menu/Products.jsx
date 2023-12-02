@@ -39,7 +39,7 @@ const Products = () => {
     <li className=" menu-item-2 flex flex-col gap-2">
     <div className="flex flex-col items-center">
       <InboxOutlined />
-      <span> PRODUCTS</span>
+      <span className="max-w-[120px]"> PRODUCTS</span>
     </div>
 
     <div className="flex flex-col items-center gap-2">
