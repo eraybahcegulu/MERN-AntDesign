@@ -13,7 +13,7 @@ const Cart = () => {
       <div className="text-center border border-b-0 p-2">
         <strong>CART</strong>
       </div>
-      <Card className=" h-full rounded-none overflow-auto">
+      <Card className=" cart-products h-full rounded-none overflow-auto">
         <div className="">
           <ul className=" flex flex-col gap-4 ">
             {cart.cartProducts.length > 0 ? (
