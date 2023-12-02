@@ -15,7 +15,7 @@ const Products = () => {
   const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
   const onFinishAddProduct = async (values) => {
     try {
-      await axios.post("http://localhost:5000/api/products/add", values);
+      await axios.post( process.env.REACT_APP_API_URL + "/api/products/add", values);
       message.success(
         <span>
           Product <strong>{values.name}</strong> added successfully

@@ -20,7 +20,7 @@ const ProductsEdit = () => {
 
   const deleteProduct = async (id, name) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/delete/${id}`);
+      await axios.delete( process.env.REACT_APP_API_URL + `/api/products/delete/${id}`);
       message.success(
         <span>
           Category <strong>{name}</strong> deleted
@@ -40,7 +40,7 @@ const ProductsEdit = () => {
     const productInfos = await form.validateFields();
     try {
       await axios.put(
-        `http://localhost:5000/api/products/update/${id}`,
+        process.env.REACT_APP_API_URL + `/api/products/update/${id}`,
         productInfos
       );
       message.success(<span>Product updated</span>);

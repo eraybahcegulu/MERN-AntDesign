@@ -19,7 +19,7 @@ const Categories = () => {
 
   const onFinishAddCategory = async (values) => {
     try {
-      await axios.post("http://localhost:5000/api/categories/add", values);
+      await axios.post( process.env.REACT_APP_API_URL + "/api/categories/add", values);
       message.success(
         <span>
           Category <strong>{values.name.toUpperCase()}</strong> added

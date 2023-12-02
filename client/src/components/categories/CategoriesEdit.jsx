@@ -13,7 +13,7 @@ const CategoriesEdit = () => {
 
   const deleteCategory = async (id, name) => {
     try {
-      await axios.delete(`http://localhost:5000/api/categories/delete/${id}`);
+      await axios.delete( process.env.REACT_APP_API_URL + `/api/categories/delete/${id}`);
       message.success(
         <span>
           Category <strong>{name}</strong> deleted
@@ -29,7 +29,7 @@ const CategoriesEdit = () => {
     const name = await form.validateFields();
     try {
       await axios.put(
-        `http://localhost:5000/api/categories/update/${id}`,
+        process.env.REACT_APP_API_URL + `/api/categories/update/${id}`,
         name
       );
       message.success(<span>Category updated</span>);
