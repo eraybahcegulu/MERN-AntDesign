@@ -73,6 +73,7 @@ const Orders = () => {
 
   return (
     <div className="w-[100vw] p-10">
+        <h1 className="font-bold text-4xl mb-4">SALES</h1>
       <Table
         columns={columns}
         dataSource={orders}
