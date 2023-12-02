@@ -21,9 +21,11 @@ const Product = ({ product }) => {
       key={product._id}
       className="product border-b hover:shadow-md transition-all select-none"
     >
-      <div className="product-img">
+      <div className="product-img flex flex-row justify-center items-center">
         <Image
-          className="min-h-[175px] max-h-[175px] w-full object-cover border-b"
+          className=" object-cover border-b"
+          width={200}
+          height={200}
           src={product.image}
           alt=""
         />
