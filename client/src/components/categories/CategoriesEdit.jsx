@@ -96,7 +96,7 @@ const CategoriesEdit = () => {
         dataSource={categories}
         rowKey="_id"
         size="middle"
-        scroll={{ y: 600 }}
+        scroll={{ y: 575 }}
         pagination={false}
         className="max-w-[500px]"
       />
