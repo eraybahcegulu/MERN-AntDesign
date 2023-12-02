@@ -91,6 +91,7 @@ const CategoriesEdit = () => {
 
   return (
     <div>
+      <h1 className="font-bold text-4xl mb-4">CATEGORIES</h1>
       <Table
         columns={columns}
         dataSource={categories}
