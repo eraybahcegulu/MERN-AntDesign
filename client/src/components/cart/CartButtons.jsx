@@ -1,9 +1,20 @@
 import React, { useState } from "react";
-import { Button, message, Modal, Form, Input, Image, Table } from "antd";
+import {
+  Button,
+  message,
+  Modal,
+  Form,
+  Input,
+  Image,
+  Table,
+  notification,
+  Result,
+} from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { reset } from "../../redux-toolkit/cart/cartSlice";
 import axios from "axios";
+import { useOrdersData } from "../../contexts/OrdersContext";
 
 const CartButtons = () => {
   const [IsCreateOrderModal, setIsCreateOrderModal] = useState(false);
@@ -11,6 +22,7 @@ const CartButtons = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [isModalOpen, setModalOpen] = useState(false);
+  const { getOrders } = useOrdersData();
 
   const createOrder = async (values) => {
     const data = {
@@ -20,12 +32,21 @@ const CartButtons = () => {
       tax: ((cart.subTotal * cart.tax) / 100).toFixed(2),
       total: (cart.subTotal + (cart.subTotal * cart.tax) / 100).toFixed(2),
     };
-    console.log(data);
     try {
       await axios.post(process.env.REACT_APP_API_URL + "/api/orders/add", data);
-      message.success(<span>a</span>);
+      notification.open({
+        message: (
+          <Result
+            status="success"
+            title="Order created successfully!"            
+          />
+        ),
+        placement: "top",
+        duration: 3,
+      });
       dispatch(reset());
       createOrderForm.resetFields();
+      getOrders();
       handleCancel();
     } catch (error) {
       console.log(error);
@@ -96,8 +117,8 @@ const CartButtons = () => {
     {
       title: <div className="text-center">Total</div>,
       dataIndex: "total",
-      render: (_, record) => {
-        const total = record.quantity * record.price;
+      render: (_, product) => {
+        const total = product.quantity * product.price;
         return (
           <div className="flex flex-row justify-center items-center">
             <strong>{total}$</strong>
@@ -153,7 +174,9 @@ const CartButtons = () => {
           size="large"
           onClick={showCreateOrderModal}
         >
-          <strong>CONTINUE <ArrowRightOutlined /></strong>
+          <strong>
+            CONTINUE <ArrowRightOutlined />
+          </strong>
         </Button>
       </div>
       <Modal
