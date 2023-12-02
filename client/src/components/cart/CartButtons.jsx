@@ -240,7 +240,7 @@ const CartButtons = () => {
               </div>
 
               <div className="tax flex flex-row justify-between border-b mt-2">
-                <span className="text-blue-400">VAT 10%</span>
+                <span className="text-blue-400">VAT {cart.tax}%</span>
                 <span className="text-red-500">
                   +{((cart.subTotal * cart.tax) / 100).toFixed(2)}$
                 </span>
