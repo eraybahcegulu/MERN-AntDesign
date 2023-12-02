@@ -7,6 +7,8 @@ const categoryRoute = require("./routes/categories.js");
 const productRoute = require("./routes/products.js");
 const orderRoute = require("./routes/orders.js");
 
+const PORT = process.env.PORT || 5000;
+
 const db = require('./database/db.js')
 db.connect();
 
@@ -29,6 +31,6 @@ app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
