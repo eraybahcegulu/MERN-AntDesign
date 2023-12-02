@@ -10,6 +10,7 @@ const OrderSchema = mongoose.Schema(
     tax: Number,
     total: Number,
   },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model('Order', OrderSchema);
