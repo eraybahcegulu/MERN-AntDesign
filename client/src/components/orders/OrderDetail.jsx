@@ -50,7 +50,7 @@ const OrderDetail = ({ isModalOpen, setIsModalOpen, selectedCustomer }) => {
       title={
         <strong className="text-center">
           <span> 
-            Order Detail - {selectedCustomer?.customerName} {selectedCustomer?.customerSurname}
+            Order Details - {selectedCustomer?.customerName} {selectedCustomer?.customerSurname}
           </span>
         </strong>
       }
