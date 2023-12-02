@@ -34,7 +34,7 @@ const ProductsEdit = () => {
       );
       message.success(
         <span>
-          Category <strong>{name}</strong> deleted
+          Product <strong>{name}</strong> deleted
         </span>
       );
       getProducts();
@@ -150,6 +150,7 @@ const ProductsEdit = () => {
 
   return (
     <div>
+      <h1 className="font-bold text-4xl mb-4">PRODUCTS</h1>
       <Table
         columns={columns}
         dataSource={products}
