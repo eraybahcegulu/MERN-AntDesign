@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { useOrdersData } from "../../contexts/OrdersContext";
 import { useCategoriesData } from "../../contexts/CategoriesContext";
 import { useProductsData } from "../../contexts/ProductsContext";
-import {  Badge } from 'antd';
+import { Badge } from 'antd';
 
-const Menu = () => {
+const Menu = ({setSearch, selectedCategory}) => {
   const { orders } = useOrdersData();
   const { categories } = useCategoriesData();
   const { products } = useProductsData();
@@ -19,17 +19,16 @@ const Menu = () => {
       <Badge className="text-lg" color='gray' count={products.length}
       
       >
-      <Products />
+      <Products setSearch={setSearch} selectedCategory={selectedCategory} />
       </Badge>
 
       <Badge className="text-lg" color='gray' count={categories.length}>
       <Categories />
       </Badge>
 
-      
-      <Badge className="menu-item text-lg" color='gray' count={orders.length}>
-      <Link  to={"/sales"}>
-        <li>
+      <Badge color='gray' count={orders.length}>
+      <Link to={"/sales"}>
+        <li className="menu-item text-lg">
           <DollarOutlined />
           <span> SALES </span>
         </li>

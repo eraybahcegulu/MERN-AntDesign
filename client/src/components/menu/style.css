@@ -7,5 +7,5 @@
   }
   
   .item-button{
-    @apply hover:opacity-80 cursor-pointer transition-all w-[80px] max-w-[80px]
+    @apply hover:opacity-80  cursor-pointer transition-all w-[80px] max-w-[80px]
   }

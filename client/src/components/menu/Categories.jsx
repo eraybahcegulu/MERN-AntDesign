@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCategoriesData } from '../../contexts/CategoriesContext';
 import {
-
   ApartmentOutlined,
 } from "@ant-design/icons";
 import "./style.css";
@@ -15,7 +14,6 @@ const Categories = () => {
   const {getCategories } = useCategoriesData();
   const [categoryForm] = Form.useForm();
   const [isAddCategoryModalOpen, setIsAddCategoryModalOpen] = useState(false);
-
 
   const onFinishAddCategory = async (values) => {
     try {
@@ -33,14 +31,6 @@ const Categories = () => {
     }
   };
 
-  const showAddCategoryModal = () => {
-    setIsAddCategoryModalOpen(true);
-  };
-
-  const handleCancel = () => {
-    setIsAddCategoryModalOpen(false);
-  };
-
   return (
     <li className=" menu-item-2 flex flex-col gap-2">
         <div className="flex flex-col items-center ">
@@ -50,7 +40,8 @@ const Categories = () => {
 
         <div className="flex flex-col items-center gap-2">
           <span
-            onClick={showAddCategoryModal}
+            onClick={() => setIsAddCategoryModalOpen(true)}
+
             className="item-button bg-blue-600 p-2"
           >
             ADD
@@ -58,7 +49,7 @@ const Categories = () => {
 
           <Modal
             open={isAddCategoryModalOpen}
-            onCancel={handleCancel}
+            onCancel={() => setIsAddCategoryModalOpen(false)}
             footer={false}
           >
             <h2>

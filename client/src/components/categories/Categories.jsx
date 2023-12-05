@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./style.css";
 import { Alert } from "antd";
 import { useCategoriesData } from '../../contexts/CategoriesContext';
 import { useProductsData } from '../../contexts/ProductsContext';
 import { useLocation } from "react-router-dom";
-const Categories = ({setFilteredProducts}) => {
+const Categories = ({setFilteredProducts, setSelectedCategory, selectedCategory}) => {
 
   const { categories } = useCategoriesData();
   const { products } = useProductsData();
   const { pathname } = useLocation();
-  const [ selectedCategory, setSelectedCategory] = useState();
 
   useEffect(() => {
 

@@ -6,13 +6,15 @@ import Cart from "../components/cart/Cart";
 
 const HomePage = () => {
   const [ filteredProducts, setFilteredProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [ selectedCategory, setSelectedCategory] = useState();
 
   return (
     <>
         <div className="home  flex md:flex-row flex-col justify-between gap-5">
           <div className=" bg-gray-900 md:h-[100vh]">
             <div className="menu overflow-auto max-h-[90vh] px-2 md:mt-6 mx-2 md:mx-0">
-              <Menu />
+              <Menu setSearch={setSearch} selectedCategory={selectedCategory} />
             </div>
           </div>
 
@@ -21,14 +23,16 @@ const HomePage = () => {
           </div>
 
           <div className="products border p-6 flex-[7] max-h-[calc(100vh-80px)] min-w-[220px] overflow-y-auto mx-4 md:mx-0 mt-10">
-            <Products filteredProducts={filteredProducts}/>
+            <Products filteredProducts={filteredProducts} search={search}/>
           </div>
 
           <div
             className="categories min-w-[150px] overflow-auto max-h-[calc(100vh-80px)]
               mx-4 md:mx-0 md:mt-10 md:mr-5 border mb-6"
           >
-            <Categories setFilteredProducts={setFilteredProducts} />
+            <Categories setFilteredProducts={setFilteredProducts} 
+            setSelectedCategory={setSelectedCategory}
+            selectedCategory={selectedCategory} />
           </div>
         </div>
     </>

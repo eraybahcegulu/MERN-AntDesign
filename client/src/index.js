@@ -9,13 +9,13 @@ import { ProductsProvider } from "./contexts/ProductsContext";
 import { OrdersProvider } from "./contexts/OrdersContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <CategoriesProvider>
-    <ProductsProvider>
-    <OrdersProvider>
-      <Provider store={store}>
-        <App />
-      </Provider>
-      </OrdersProvider>
-    </ProductsProvider>
-  </CategoriesProvider>
+  <Provider store={store}>
+    <CategoriesProvider>
+      <ProductsProvider>
+        <OrdersProvider>
+          <App />
+        </OrdersProvider>
+      </ProductsProvider>
+    </CategoriesProvider>
+  </Provider>
 );
