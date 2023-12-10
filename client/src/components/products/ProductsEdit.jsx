@@ -45,7 +45,7 @@ const ProductsEdit = () => {
 
   useEffect(() => {
     dispatch(reset());
-  }, []);
+  }, [dispatch]);
 
   const updateProduct = async (id) => {
     const productInfos = await form.validateFields();
@@ -80,7 +80,7 @@ const ProductsEdit = () => {
         category: selectedProduct.category,
       });
     }
-  }, [isModalOpen, selectedProduct.name, form]);
+  }, [isModalOpen, selectedProduct.name, form, selectedProduct.image, selectedProduct.price, selectedProduct.category]);
 
   const columns = [
     {
