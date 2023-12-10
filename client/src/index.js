@@ -6,15 +6,15 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { ProductsProvider } from "./contexts/ProductsContext";
-import { OrdersProvider } from "./contexts/OrdersContext";
+//import { OrdersProvider } from "./contexts/OrdersContext";
+//orders state management context yerine redux ile sağlandı
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <CategoriesProvider>
       <ProductsProvider>
-        <OrdersProvider>
-          <App />
-        </OrdersProvider>
+        <App />
       </ProductsProvider>
     </CategoriesProvider>
   </Provider>

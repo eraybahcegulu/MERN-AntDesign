@@ -14,7 +14,7 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { reset } from "../../redux-toolkit/cart/cartSlice";
 import axios from "axios";
-import { useOrdersData } from "../../contexts/OrdersContext";
+import { fetchOrdersData } from '../../redux-toolkit/orders/ordersSlice';
 
 const CartButtons = () => {
   const [IsCreateOrderModal, setIsCreateOrderModal] = useState(false);
@@ -22,7 +22,6 @@ const CartButtons = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [isModalOpen, setModalOpen] = useState(false);
-  const { getOrders } = useOrdersData();
 
   const createOrder = async (values) => {
     const data = {
@@ -38,15 +37,15 @@ const CartButtons = () => {
         message: (
           <Result
             status="success"
-            title="Order created successfully!"            
+            title="Order created successfully!"
           />
         ),
         placement: "top",
         duration: 3,
       });
       dispatch(reset());
+      dispatch(fetchOrdersData());
       createOrderForm.resetFields();
-      getOrders();
       handleCancel();
     } catch (error) {
       console.log(error);

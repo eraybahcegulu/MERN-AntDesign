@@ -1,11 +1,22 @@
-import { useState } from "react";
-import { Table, Button } from "antd";
-import { useOrdersData } from "../../contexts/OrdersContext";
+import { useState, useEffect } from "react";
+import { Table, Button, Spin, Result } from "antd";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOrdersData } from '../../redux-toolkit/orders/ordersSlice';
+
 import { Link } from "react-router-dom";
 import { FileSearchOutlined } from "@ant-design/icons";
 import OrderDetail from "./OrderDetail";
 const Orders = () => {
-  const { orders } = useOrdersData();
+
+  const dispatch = useDispatch();
+  const orders = useSelector(state => state.orders.data);
+  const status = useSelector((state) => state.orders.status);
+
+  useEffect(() => {
+    dispatch(fetchOrdersData());
+  }, [dispatch]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState();
 
@@ -73,15 +84,31 @@ const Orders = () => {
 
   return (
     <div className="w-[100vw] p-10">
-        <h1 className="font-bold text-4xl mb-4">SALES</h1>
-      <Table
-        columns={columns}
-        dataSource={orders}
-        rowKey="_id"
-        size="small"
-        scroll={{ y: 630, x: 800 }}
-        pagination={false}
-      />
+      <h1 className="font-bold text-4xl mb-4">SALES</h1>
+
+      {status === 'loading' &&
+        <div className="text-center"> <Spin size="large" /> </div>
+      }
+
+      {
+        status === 'failed' &&
+        <Result
+          status="error"
+          title="Failed"
+        />
+      }
+
+      {status === 'succeeded' &&
+        <Table
+          columns={columns}
+          dataSource={orders}
+          rowKey="_id"
+          size="small"
+          scroll={{ y: 630, x: 800 }}
+          pagination={false}
+        />
+      }
+
       <Link to={"/"}>
         <Button
           size="large"
